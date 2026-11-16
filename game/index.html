@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumen Harvest — Starlight Salvage</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stage">
+  <canvas id="game" width="1280" height="720"></canvas>
+
+  <div id="hud" hidden>
+    <div class="hud-left">
+      <span class="hud-label">SCORE</span><span id="hud-score" class="hud-value">0</span>
+      <span class="hud-label">WAVE</span><span id="hud-wave" class="hud-value">—</span>
+      <span class="hud-label">HULL</span><span id="hud-hull" class="hud-value hearts">♥♥♥♥♥</span>
+    </div>
+    <div class="hud-right">
+      <span id="hud-combo" class="hud-combo"></span>
+      <span id="hud-shards" class="hud-value">◆ 0</span>
+      <span id="hud-bomb" class="hud-bomb">E — Sunburst 0/10 ◆</span>
+    </div>
+  </div>
+
+  <div id="bossbar" hidden>
+    <div class="boss-name">GLOOMMAW — THE VOID THAT EATS LIGHT</div>
+    <div class="boss-track"><div id="bossfill"></div></div>
+  </div>
+
+  <div id="screen-title" class="screen">
+    <div class="card">
+      <div class="eyebrow">A BRIGHT ARCADE GAME · KEYBOARD + MOUSE</div>
+      <h1>LUMEN<br>HARVEST</h1>
+      <div class="subtitle">★ Starlight Salvage ★</div>
+      <p class="goal">Pilot the last sun-skiff across the morning sky. Harvest star shards,
+      blast the void motes back into the dark, and survive all <b>5 waves</b> —
+      then break <b>Gloommaw</b>, the void that eats light.</p>
+      <div class="rules">
+        <div><b>WASD / Arrows</b> — fly</div>
+        <div><b>Mouse</b> — aim &nbsp;·&nbsp; <b>Click / Space</b> — fire</div>
+        <div><b>Shift</b> — dash &nbsp;·&nbsp; <b>E</b> — Sunburst (10 ◆ clears the sky)</div>
+        <div><b>P</b> — pause &nbsp;·&nbsp; <b>R</b> — restart &nbsp;·&nbsp; <b>M</b> — mute</div>
+      </div>
+      <p class="pickups">◆ shards score &amp; charge Sunburst &nbsp;·&nbsp; ♥ hull &nbsp;·&nbsp; ×3 spread shot &nbsp;·&nbsp; ◯ shield</p>
+      <button id="btn-start" class="big-btn">▶ &nbsp;START HARVEST</button>
+      <p class="best">BEST SCORE: <span id="title-best">0</span></p>
+      <p id="mute-note" class="mute-note">Sound on (M to mute)</p>
+    </div>
+  </div>
+
+  <div id="screen-pause" class="screen" hidden>
+    <div class="card small">
+      <h2>PAUSED</h2>
+      <p class="goal">The sky waits for you.</p>
+      <button id="btn-resume" class="big-btn">▶ &nbsp;RESUME</button>
+      <button id="btn-title" class="ghost-btn">Back to title</button>
+    </div>
+  </div>
+
+  <div id="screen-over" class="screen" hidden>
+    <div class="card small">
+      <h2 class="over-title">THE LIGHT WENT OUT</h2>
+      <p class="goal">The void swallowed the skiff on wave <b id="over-wave">1</b>.</p>
+      <div class="stats">
+        <div><span>SCORE</span><b id="over-score">0</b></div>
+        <div><span>MOTES DOWN</span><b id="over-kills">0</b></div>
+        <div><span>BEST</span><b id="over-best">0</b></div>
+      </div>
+      <button id="btn-retry" class="big-btn">↻ &nbsp;FLY AGAIN (R)</button>
+    </div>
+  </div>
+
+  <div id="screen-win" class="screen" hidden>
+    <div class="card small win-card">
+      <div class="eyebrow">★ THE SKY IS YOURS AGAIN ★</div>
+      <h2 class="win-title">GLOOMMAW BROKEN!</h2>
+      <p class="goal">Five waves cleared. Every shard gathered, every mote scattered —
+      the morning belongs to the light.</p>
+      <div class="stats">
+        <div><span>FINAL SCORE</span><b id="win-score">0</b></div>
+        <div><span>MOTES DOWN</span><b id="win-kills">0</b></div>
+        <div><span>BEST COMBO</span><b id="win-combo">×1</b></div>
+        <div><span>SHARDS</span><b id="win-shards">0</b></div>
+        <div><span>BEST</span><b id="win-best">0</b></div>
+      </div>
+      <button id="btn-again" class="big-btn">↻ &nbsp;PLAY AGAIN (R)</button>
+      <button id="btn-title-win" class="ghost-btn">Back to title</button>
+    </div>
+  </div>
+</div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
